@@ -1,0 +1,81 @@
+﻿<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SimpleHttpServer Sample</title>
+
+    <link rel="stylesheet" href="./styles.css" />
+
+    <script src="https://unpkg.com/htmx.org@1.9.12" defer></script>
+    <!-- form を application/json で投げるための拡張（最小） -->
+    <script src="https://unpkg.com/htmx.org@1.9.12/dist/ext/json-enc.js" defer></script>
+
+    <script src="./app.js" defer></script>
+</head>
+
+<body>
+<h1>SimpleHttpServer Sample</h1>
+<p class="muted base-url">
+    Base URL: <code id="baseUrlText"></code>
+</p>
+
+<section>
+    <h2>GET /version</h2>
+
+    <button
+            hx-get="/version"
+            hx-target="#versionResult"
+            hx-swap="textContent"
+            hx-indicator="#versionLoading"
+    >
+        Fetch version
+    </button>
+    <span id="versionLoading" class="htmx-indicator">Loading...</span>
+
+    <pre id="versionResult"></pre>
+</section>
+
+<section>
+    <h2>POST /echo</h2>
+
+    <form
+            hx-ext="json-enc"
+            hx-post="/echo"
+            hx-target="#echoResult"
+            hx-swap="textContent"
+            hx-indicator="#echoLoading"
+            hx-on="submit: validateEcho(event)"
+    >
+        <div class="row">
+            <input id="echoInput" name="message" type="text" placeholder="Enter message" />
+            <button type="submit">Send</button>
+        </div>
+    </form>
+
+    <span id="echoLoading" class="htmx-indicator">Sending...</span>
+    <pre id="echoResult"></pre>
+</section>
+
+<section>
+    <h2>GET /user/:id/profile</h2>
+
+    <form
+            data-user-profile-request="1"
+            data-user-id-input="#userIdInput"
+            hx-get="/user/_/profile"
+            hx-target="#userProfileResult"
+            hx-swap="textContent"
+            hx-indicator="#userProfileLoading"
+    >
+        <div class="row">
+            <input id="userIdInput" type="text" placeholder="Enter user id" />
+            <button type="submit">Fetch profile</button>
+        </div>
+    </form>
+
+    <span id="userProfileLoading" class="htmx-indicator">Loading...</span>
+    <pre id="userProfileResult"></pre>
+</section>
+</body>
+</html>

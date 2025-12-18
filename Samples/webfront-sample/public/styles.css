@@ -1,0 +1,104 @@
+﻿:root {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Dark theme tokens */
+    color-scheme: dark;
+    --bg: #0f1115;
+    --panel: #151923;
+    --panel-2: #101420;
+    --text: #e7eaf0;
+    --muted: #aab2c2;
+    --border: #273043;
+    --border-2: #1f2636;
+    --input-bg: #0f1420;
+    --button-bg: #1a2131;
+    --button-bg-hover: #222c41;
+    --button-text: #e7eaf0;
+    --code-bg: #0b0e14;
+    --focus: #5b8cff;
+}
+
+body {
+    margin: 16px;
+    background: var(--bg);
+    color: var(--text);
+}
+
+section {
+    margin-bottom: 32px;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+}
+
+pre {
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-2);
+    background: var(--code-bg);
+    color: var(--text);
+    white-space: pre-wrap;
+    word-break: break-word;
+    min-height: 48px;
+}
+
+.row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--input-bg);
+    color: var(--text);
+    outline: none;
+}
+
+input[type="text"]::placeholder {
+    color: color-mix(in srgb, var(--muted) 80%, transparent);
+}
+
+button {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--button-bg);
+    color: var(--button-text);
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--button-bg-hover);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.htmx-indicator {
+    margin-left: 8px;
+    color: var(--muted);
+}
+
+.muted {
+    opacity: 0.85;
+    color: var(--muted);
+}
+
+.base-url {
+    margin-bottom: 24px;
+}
+
+code {
+    background: var(--panel-2);
+    border: 1px solid var(--border-2);
+    border-radius: 8px;
+    padding: 2px 6px;
+}
