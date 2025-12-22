@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include "Modules/ModuleManager.h"
+
 SIMPLEHTTPSERVER_API DECLARE_LOG_CATEGORY_EXTERN(LogSimpleHttpServer, Log, All);
 
 

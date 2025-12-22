@@ -28,7 +28,7 @@ public sealed class SimpleHttpServer : ModuleRules
 			new string[]
 			{
 				"Core",
-				"HttpServer",
+				"HTTPServer",
 				"Json",
 				"JsonUtilities",
 				// ... add other public dependencies that you statically link with here ...

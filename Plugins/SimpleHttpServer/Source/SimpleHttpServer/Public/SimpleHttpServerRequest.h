@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "HttpPath.h"
+#include "IPAddress.h"
 #include "HttpServerHttpVersion.h"
 #include "SimpleHttpServerEndpoint.h"
 #include "SimpleHttpServerHeader.h"
