@@ -53,13 +53,6 @@ if errorlevel 1 (
     echo.
     echo Build completed successfully!
     echo Output: %OUTPUT_PATH%
-    
-    call "%~dp0patchPackagedBuildCs.bat" "%OUTPUT_PATH%" "%PLUGIN_NAME%" "true"
-    if errorlevel 1 (
-        echo.
-        echo Post-build patch failed with errorlevel %ERRORLEVEL%.
-        exit /b %ERRORLEVEL%
-    )
 )
 
 endlocal
